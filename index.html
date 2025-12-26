@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neon Striker: Cyber Penalty - Pro Edition</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="game-container">
+        <div id="ui-layer">
+            <div class="score-board">
+                ГОЛИ: <span id="score">0</span> | УДАРИ: <span id="attempts">0</span>
+            </div>
+        </div>
+        
+        <canvas id="gameCanvas"></canvas>
+
+        <div id="start-screen" class="overlay">
+            <h1>NEON STRIKER PRO</h1>
+            <p>КЛІКНИ, ЩОБ ПОЧАТИ</p>
+            <div class="loader"></div>
+        </div>
+
+        <div id="game-over-screen" class="overlay">
+            <h1>ГРУ ЗАВЕРШЕНО</h1>
+            <p>ТВІЙ РАХУНОК: <span id="final-score">0</span></p>
+            <p class="small-text">Спробуй ще раз!</p>
+            <button id="restart-button">ПОЧАТИ ЗНОВУ</button>
+        </div>
+
+        <div id="message" class="game-message">ГОЛ!</div>
+        <div class="controls-hint">КЛІКНИ: НАПРЯМОК &gt; СИЛА</div>
+    </div>
+    
+    <script src="game.js"></script>
+</body>
+</html>
