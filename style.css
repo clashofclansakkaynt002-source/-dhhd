@@ -1,0 +1,150 @@
+body {
+    margin: 0;
+    overflow: hidden;
+    background-color: #0d0d1a; /* Темніший фон */
+    font-family: 'Orbitron', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    user-select: none;
+    color: #0ff; /* Дефолтний колір для тексту */
+}
+
+#game-container {
+    position: relative;
+    box-shadow: 0 0 120px rgba(0, 255, 255, 0.2), inset 0 0 30px rgba(0, 255, 255, 0.05);
+    border: 3px solid #1a1a2e;
+    overflow: hidden; /* Щоб тремтіння не виходило за межі */
+}
+
+canvas {
+    display: block;
+    background: radial-gradient(circle at center, #1a1a2e 0%, #050510 100%);
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #0ff;
+    text-shadow: 0 0 15px rgba(0, 255, 255, 0.7);
+    font-size: 2em;
+    font-weight: 700;
+    text-align: center;
+    transition: opacity 0.5s ease-in-out;
+    opacity: 0;
+    pointer-events: none;
+    z-index: 100;
+}
+
+.overlay.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.overlay h1 {
+    font-size: 3em;
+    margin-bottom: 20px;
+    color: #fff;
+    text-shadow: 0 0 30px #0ff;
+}
+
+.overlay p {
+    font-size: 1.2em;
+    margin-top: 10px;
+}
+
+.overlay .small-text {
+    font-size: 0.8em;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+#restart-button {
+    background: linear-gradient(45deg, #0ff, #f0f);
+    border: none;
+    padding: 15px 30px;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.2em;
+    color: #0d0d1a;
+    font-weight: 900;
+    cursor: pointer;
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.7);
+    border-radius: 5px;
+    margin-top: 30px;
+    transition: all 0.3s ease;
+}
+
+#restart-button:hover {
+    box-shadow: 0 0 40px rgba(0, 255, 255, 1);
+    transform: scale(1.05);
+}
+
+.loader {
+    border: 8px solid #333;
+    border-top: 8px solid #0ff;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    animation: spin 1s linear infinite;
+    margin-top: 20px;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+#ui-layer {
+    position: absolute;
+    top: 30px;
+    width: 100%;
+    text-align: center;
+    pointer-events: none;
+    z-index: 10;
+}
+
+.score-board {
+    color: #0ff;
+    font-size: 28px;
+    text-shadow: 0 0 15px #0ff;
+    font-weight: 700;
+}
+
+.game-message {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.8); /* Початковий розмір */
+    font-size: 80px;
+    font-weight: 900;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out, transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    z-index: 20;
+    pointer-events: none;
+    white-space: nowrap;
+}
+
+.game-message.active {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.controls-hint {
+    position: absolute;
+    bottom: 30px;
+    width: 100%;
+    text-align: center;
+    color: rgba(0, 255, 255, 0.4);
+    letter-spacing: 2px;
+    font-size: 1.1em;
+    pointer-events: none;
+    z-index: 10;
+}
